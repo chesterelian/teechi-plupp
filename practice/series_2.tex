@@ -1,0 +1,137 @@
+\documentclass[11pt]{article}
+
+% ----------------------------------------------------------- essential packages
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{booktabs} % somewhat essential, I guess
+\usepackage{setspace} % for double spacing, etc.
+
+% ------------------------------------------------------------------- font stuff
+\renewcommand{\rmdefault}{ptm}
+\usepackage[lite,zswash,eucal]{mtpro2}
+%\usepackage[charter]{mathdesign}
+%\usepackage[utopia]{mathdesign}
+%\usepackage{fourier}
+
+% ----------------------------------------------------------- fancy header stuff
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[LO,LE]{Math 112L-06}
+\chead{\textbf{Series Practice II}}
+\fancyhead[RO,RE]{Spring 2017}
+
+% ------------------------------------------------------------------- tikz stuff
+\usepackage{tikz}
+%\usetikzlibrary{decorations.markings}
+
+% ----------------------------------------------------------------------- macros
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+%\DeclareMathOperator{\Hom}{Hom}
+
+% --------------------------------------------------------------- begin document
+\begin{document}
+
+\begin{enumerate}
+
+  \item Suppose the terms $a_n$ are positive and decreasing. Let $f(x)$ be a
+  continuous decreasing function such that $f(n) = a_n$. (The last sentence is
+  just fancy math-speak for ``$f(x)$ is the continuous version of $a_n$.'' I'm
+  just writing it here so you know what it means when you see it somewhere
+  else.) \begin{enumerate}
+
+    \item Order these 6 quantities from smallest to biggest: \[
+      \sum_{n=7}^\infty a_n
+      \qquad
+      \sum_{n=8}^\infty a_n
+      \qquad
+      \sum_{n=9}^\infty a_n
+      \qquad
+      \int_7^\infty f(x) \, dx
+      \qquad
+      \int_8^\infty f(x) \, dx
+      \qquad
+      \int_9^\infty f(x) \, dx
+    \]
+
+    \item Fill in the following blanks: \[
+      \sum_{n=1234}^{5678} a_n <
+      \int_{\,\fbox{\phantom{n}}}^{\fbox{\phantom{n}}} f(x) \, dx
+      \qquad\qquad\qquad
+      \sum_{n=1234}^{5678} a_n >
+      \int_{\,\fbox{\phantom{n}}}^{\fbox{\phantom{n}}} f(x) \, dx
+    \] \[
+      \int_{1234}^{5678} f(x) \, dx <
+      \sum_{n=\,\fbox{\phantom{n}}}^{\fbox{\phantom{n}}} a_n
+      \qquad\qquad\qquad
+      \int_{1234}^{5678} f(x) \, dx >
+      \sum_{n=\,\fbox{\phantom{n}}}^{\fbox{\phantom{n}}} a_n
+    \]
+
+    \item Fill in the following blanks: \[
+      \sum_{n=112}^{2017} a_n =
+      \sum_{n=112}^{1776} a_n +
+      \sum_{n=\,\fbox{\phantom{n}}}^{\fbox{\phantom{n}}} a_n
+    \] \[
+      \int_{112}^{2017} f(x) \, dx =
+      \int_{112}^{1776} f(x) \, dx +
+      \int_{\,\fbox{\phantom{n}}}^{\fbox{\phantom{n}}} f(x) \, dx
+    \]
+
+  \end{enumerate}
+
+  \item Decide if they converge or diverge: \begin{enumerate}
+
+    \item $\displaystyle \sum_{n=1}^\infty 2^{-n}$
+
+    \item $\displaystyle \sum_{n=1}^\infty n^{-2}$
+
+    \item $\displaystyle \sum_{n=1}^\infty 0.2^{-n}$
+
+    \item $\displaystyle \sum_{n=1}^\infty n^{-0.2}$
+
+    \item $\displaystyle \sum_{n=1}^\infty
+    \left( 2n^{-3} - 4n^{-5} + 6n^{-7} - 8n^{-9} \right)$
+
+    \item $\displaystyle \sum_{n=1}^\infty
+    \left( \frac2{n^3} - \frac3{2^n} \right)$
+
+    \item $\displaystyle 
+    1 + \frac1{2\sqrt2} + \frac1{3\sqrt3} + \frac1{4\sqrt4} + \cdots$
+
+    \item $\displaystyle \sum_{n=1}^\infty
+    \frac{n^{-1.5}+1.5\sqrt n}{n^{1.5}}$
+
+  \end{enumerate}
+
+  \item Find all values of $x$ for which $\displaystyle \sum_{n=1}^\infty \left(
+  \frac xn - \frac{555}{n+1} \right)$ converges.
+
+  \item Consider the series $\displaystyle \sum_{n=1}^\infty \frac1{(n+1)^2}$.
+  \begin{enumerate}
+    
+    \item Show that it converges.
+
+    \item Find the sum of the first three terms and write it as a fraction.
+    Don't use a calculator. You can do this by hand. I have faith in you.
+
+    \item Find lower and upper bounds for the error in using your approximation
+    in part (b).
+    
+    \item Based on your answers to parts (b) and (c), to how many decimal places
+    can you accurately determine the value of the series? What is it? Again,
+    don't use a calculator. You can do this by hand. I have faith in you.
+
+    \item How many terms do you need to add in order to get an estimate that's
+    within 0.0005 of the actual value of the series?
+
+  \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
