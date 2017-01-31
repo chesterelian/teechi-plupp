@@ -92,9 +92,13 @@ with.
   Bound the ugly thing: $\displaystyle \frac0{n^2} \leq \frac{\arctan(n^2)}{n^2} \leq
   \frac{\pi/2}{n^2}$.
 
-  Therefore: $\displaystyle 0 \leq \displaystyle \sum_{n=1}^\infty
-  \frac{\arctan(n^2)}{n^2} \leq
-  \fbox{\displaystyle\sum_{n=1}^\infty\frac{\pi/2}{n^2}} \gets$ Oh, wait, this
+  Therefore: $
+    \displaystyle 0 
+    \leq 
+    \sum_{n=1}^\infty \frac{\arctan(n^2)}{n^2} 
+    \leq
+    \fbox{$\displaystyle\sum_{n=1}^\infty\frac{\pi/2}{n^2}$} 
+  \gets$ Oh, wait, this
   is just $\displaystyle \frac\pi2\sum_{n=1}^\infty\frac1{n^2}$. I know what to
   do!
 
@@ -105,18 +109,22 @@ with.
     -8 \leq 8\sin(\text{whatever}) \leq 8 \qquad \text{and} \qquad
     0 \leq e^{\text{anything negative}} \leq 1.
   \]
-  Now add these guys up:
-  \begin{center}\begin{array}{rrcccl}
-    &10 & \leq & 10 & \leq & 10 \\
-    &-8 & \leq & 8\sin(n^6+4) & \leq & 8 \\
-    (+) \;&-1 & \leq & -e^{-\sqrt{e^n} & \leq & 0 \\\hline
-    &1 & \leq & \text{numerator} & \leq & 18
-  \end{array}\end{center}
+  Now add these guys up: \[
+    \begin{array}{rrcccl}
+             & 10 & \leq & 10               & \leq & 10 \\
+             & -8 & \leq & 8\sin(n^6+4)     & \leq & 8 \\
+      (+) \; & -1 & \leq & -e^{-\sqrt{e^n}} & \leq & 0 \\\hline
+             &  1 & \leq & \text{numerator} & \leq & 18
+    \end{array}
+  \]
 
-  Therefore: $\displaystyle 0 \leq \fbox{\displaystyle \sum_{n=1}^\infty
-  \frac{1}{n^2} \leq
-  \sum_{n=1}^\infty\frac{10+8\sin(n^6+4)-e^{-\sqrt{e^n}}}{n^2} \leq
-  \sum_{n=1}^\infty \frac{18}{n^2}}\gets$ Not so scary anymore.
+  Therefore: $\displaystyle 0 \leq \fbox{$
+    \displaystyle \sum_{n=1}^\infty \frac{1}{n^2} 
+    \leq
+    \sum_{n=1}^\infty\frac{10+8\sin(n^6+4)-e^{-\sqrt{e^n}}}{n^2} 
+    \leq
+    \sum_{n=1}^\infty \frac{18}{n^2}
+  $} \gets$ Not so scary anymore.
 
   \item $\displaystyle \sum_{n=1}^\infty \frac{10+8\sin(n^6+4)-e^{-\sqrt{e^n
   }}}{\sqrt n} \gets$ Now you try this.
@@ -136,12 +144,12 @@ with.
 
   Therefore: $\displaystyle 0 \leq \displaystyle \sum_{n=1}^\infty
   \frac{\arctan(n)}{n} \leq
-  \fbox{\displaystyle\sum_{n=1}^\infty\frac{\pi/2}{n}} \gets$ Oh, wait, this
+  \fbox{$\displaystyle\sum_{n=1}^\infty\frac{\pi/2}{n}$} \gets$ Oh, wait, this
   diverges. No conclusion :(
 
   What else can I try? Bound it the other way: $\displaystyle 0 \leq
-  \fbox{\displaystyle \frac{\pi/4}{n}
-  \leq \frac{\arctan(n)}n} \gets$ Think: Why is this true?
+  \fbox{$\displaystyle \frac{\pi/4}{n}
+  \leq \frac{\arctan(n)}n$} \gets$ Think: Why is this true?
 
   Therefore: $\displaystyle 0 \leq \displaystyle \sum_{n=1}^\infty
   \frac{\pi/4}{n} \leq
@@ -234,13 +242,13 @@ read their prerequisites again). 90\% of the time, this is how the ACT is used
 in a real problem:
 \begin{enumerate}
 
-  \item Question gives you $\fbox{\displaystyle \sum_{n=1}^\infty a_n} \gets$ has negative terms; can't
+  \item Question gives you $\fbox{$\displaystyle \sum_{n=1}^\infty a_n$} \gets$ has negative terms; can't
   use CT or LCT :(
 
   \item You don't answer the question just yet.
 
   \item Instead, you look at a different series:
-  $\fbox{\displaystyle \sum_{n=1}^\infty \left| a_n \right|} \gets$ no
+  $\fbox{$\displaystyle \sum_{n=1}^\infty \left| a_n \right|$} \gets$ no
   negative terms; can use CT or LCT :)
 
   \item If the new series converges, then the ACT tells you that the original
