@@ -1,0 +1,317 @@
+\documentclass[11pt]{article}
+
+% ----------------------------------------------------------- essential packages
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{booktabs} % somewhat essential, I guess
+\usepackage{setspace} % for double spacing, etc.
+
+% ------------------------------------------------------------------- font stuff
+\renewcommand{\rmdefault}{ptm}
+\usepackage[lite,zswash,eucal]{mtpro2}
+%\usepackage[charter]{mathdesign}
+%\usepackage[utopia]{mathdesign}
+%\usepackage{fourier}
+
+% ----------------------------------------------------------- fancy header stuff
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[LO,LE]{Math 112L-06}
+\chead{\textbf{Strategy for Series I}}
+\fancyhead[RO,RE]{Spring 2017}
+
+% ------------------------------------------------------------------- tikz stuff
+\usepackage{tikz}
+%\usetikzlibrary{decorations.markings}
+
+% ----------------------------------------------------------------------- macros
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+%\DeclareMathOperator{\Hom}{Hom}
+
+% --------------------------------------------------------------- begin document
+\begin{document}
+
+\section{\emph{n}th Term Test}
+
+\subsection{Prerequisites?}
+
+None. Can be used for any series you come across.
+
+\subsection{When to use?}
+
+Every. Single. Time.\\
+
+\noindent Unless you have a geometric/$p$-/telescoping series, this should
+\emph{always} be the first thing you try. It doesn't always work, but when it
+does, you're done with the problem in $<3$ minutes. Shakespeare once said that
+there's no greater pain in the world than spending 20 minutes trying 5 different
+tests before realizing that all you needed was an $n$th term test to conclude
+that the series diverges. It's true. I asked him.\\
+
+\newpage
+\section{Comparison Test}
+
+\subsection{Prerequisites?}
+
+All terms must be positive or zero, i.e., $a_n \geq 0$.
+
+\subsection{When to use?}
+
+When there are ugly functions you need to bound. Here are some common ones:
+\begin{itemize}
+
+  \item $-1 \leq \sin(\text{anything}) \leq 1$
+  \item $0 \leq |\sin(\text{anything})| \leq 1$
+  \item $0 \leq \sin^2(\text{anything}) \leq 1$
+  \item $0 \leq \arctan(\text{any positive number}) \leq \displaystyle\frac\pi2$
+  \item $0 \leq e^{\text{any negative number}} \leq 1$
+
+\end{itemize}
+Depending on the context of the question, you might have to come up with sharper
+bounds on your own.
+
+\subsection{Why is it useful?}
+
+It replaces an ugly expression ($\sin(?)$, $\cos(?)$, $\arctan(?)$, $e^?$,
+etc.), which is impossible to work with, with a number, which is easier to work
+with.
+
+\subsection{Examples}
+
+\begin{enumerate}
+
+  \item $\displaystyle \sum_{n=1}^\infty \frac{\arctan(n^2)}{n^2} \gets$ Help, I
+  don't know what to do!
+
+  Bound the ugly thing: $\displaystyle \frac0{n^2} \leq \frac{\arctan(n^2)}{n^2} \leq
+  \frac{\pi/2}{n^2}$.
+
+  Therefore: $\displaystyle 0 \leq \displaystyle \sum_{n=1}^\infty
+  \frac{\arctan(n^2)}{n^2} \leq
+  \fbox{\displaystyle\sum_{n=1}^\infty\frac{\pi/2}{n^2}} \gets$ Oh, wait, this
+  is just $\displaystyle \frac\pi2\sum_{n=1}^\infty\frac1{n^2}$. I know what to
+  do!
+
+  \item $\displaystyle \sum_{n=1}^\infty \frac{10+8\sin(n^6+4)-e^{-\sqrt{e^n
+  }}}{n^2} \gets$ lolwut
+
+  What do you do? Bound the ugly thing! Two obvious inequalities: \[
+    -8 \leq 8\sin(\text{whatever}) \leq 8 \qquad \text{and} \qquad
+    0 \leq e^{\text{anything negative}} \leq 1.
+  \]
+  Now add these guys up:
+  \begin{center}\begin{array}{rrcccl}
+    &10 & \leq & 10 & \leq & 10 \\
+    &-8 & \leq & 8\sin(n^6+4) & \leq & 8 \\
+    (+) \;&-1 & \leq & -e^{-\sqrt{e^n} & \leq & 0 \\\hline
+    &1 & \leq & \text{numerator} & \leq & 18
+  \end{array}\end{center}
+
+  Therefore: $\displaystyle 0 \leq \fbox{\displaystyle \sum_{n=1}^\infty
+  \frac{1}{n^2} \leq
+  \sum_{n=1}^\infty\frac{10+8\sin(n^6+4)-e^{-\sqrt{e^n}}}{n^2} \leq
+  \sum_{n=1}^\infty \frac{18}{n^2}}\gets$ Not so scary anymore.
+
+  \item $\displaystyle \sum_{n=1}^\infty \frac{10+8\sin(n^6+4)-e^{-\sqrt{e^n
+  }}}{\sqrt n} \gets$ Now you try this.
+
+\end{enumerate}
+
+\subsection{Tricky cases}
+
+\begin{enumerate}
+
+  \item $\displaystyle \sum_{n=1}^\infty \frac{\arctan(n)}{n} \gets$
+  Superficially, looks very similar to the first example. Secretly, very
+  different.
+
+  Bound the ugly thing: $\displaystyle 0 \leq \frac{\arctan(n)}{n} \leq
+  \frac{\pi/2}{n}$.
+
+  Therefore: $\displaystyle 0 \leq \displaystyle \sum_{n=1}^\infty
+  \frac{\arctan(n)}{n} \leq
+  \fbox{\displaystyle\sum_{n=1}^\infty\frac{\pi/2}{n}} \gets$ Oh, wait, this
+  diverges. No conclusion :(
+
+  What else can I try? Bound it the other way: $\displaystyle 0 \leq
+  \fbox{\displaystyle \frac{\pi/4}{n}
+  \leq \frac{\arctan(n)}n} \gets$ Think: Why is this true?
+
+  Therefore: $\displaystyle 0 \leq \displaystyle \sum_{n=1}^\infty
+  \frac{\pi/4}{n} \leq
+  \sum_{n=1}^\infty\frac{\arctan(n)}{n} \gets$ Yay, thing in the middle
+  diverges, so it's conclusive!
+
+\end{enumerate}
+
+\newpage
+\section{Limit Comparison Test}
+
+\subsection{Prerequisites?}
+
+All terms must be positive or zero, i.e., $a_n \geq 0$.
+
+\subsection{When to use?}
+
+When there are dominant terms and/or when you have a series that ``looks like''
+a geometric series or a $p$-series.
+
+\subsection{Why is it useful?}
+
+We know the precise conditions under which geometric series and $p$-series
+converge/diverge. Things that ``look like'' the things we know (usually) behave
+like the things we know.
+
+\subsection{Examples}
+
+\begin{enumerate}
+
+  \item $\displaystyle \sum_{n=1}^\infty \frac{1+2^n}{3^n+n^4}$
+
+  Dominant term upstairs: $2^n$. Dominant term downstairs: $3^n$. Do LCT with
+  $b_n = \displaystyle \frac{2^n}{3^n}$.
+
+  \item $\displaystyle \sum_{n=1}^\infty \frac{n^2 + 3n + 4}{5n^6-7}$
+
+  Dominant term upstairs: $n^2$. Dominant term downstairs: $5n^6$. Do LCT with
+  $b_n = \displaystyle \frac{n^2}{5n^6}$. (You could do it with $b_n =
+  \displaystyle \frac{n^2}{n^6}$ as well; coefficients don't really matter.)
+
+  \item $\displaystyle \sum_{n=1}^\infty \frac{5n^6-7}{n^2 + 3n + 4}$
+
+  Dominant term upstairs: $5n^6$. Dominant term downstairs: $n^2$.
+  \color{red}Don't waste your time doing LCT. It's still going to work, of
+  course, but it's much faster to use the $n$th term test. \color{black} Think:
+  Why doesn't the $n$th term test work for the previous two examples?
+
+\end{enumerate}
+
+\newpage
+\subsection{Hail Mary}
+
+For mathematical reasons that I'm only willing to explain if you ask me in
+person, when you're stuck on a problem and there happens to be a $\displaystyle
+\frac1n$ somewhere in the question, you can try doing LCT with $\displaystyle
+b_n = \frac1n$ even if it doesn't look like there's any reason it should work.
+\\
+
+\noindent Here's an example: $\displaystyle \sum_{n=1}^\infty
+\arctan\left(\frac1n\right)$. This is not geometric; not a $p$-series; not
+telescoping; the $n$th term test is inconclusive; we can't really bound the ugly
+thing with anything useful; there's no dominant term; we don't know what the
+integral of $\arctan$ is. Time for a Hail Mary: \[
+  \lim_{n\to\infty}\frac{\displaystyle\arctan\left(\frac1n\right)}{\displaystyle\frac1n}
+  =\lim_{x\to\infty}\frac{\displaystyle\arctan\left(\frac1x\right)}{\displaystyle\frac1x}
+  \stackrel{H}{=}\lim_{x\to\infty}\frac{\displaystyle\left(\frac1{1+\frac1{x^2}}\right)\left(-\frac1{x^2}\right)}
+  {\displaystyle-\frac1{x^2}}
+  =\lim_{x\to\infty}\frac1{1+\displaystyle\frac1{x^2}}=1,
+\]
+which is a positive number, so $\displaystyle\sum_{n=1}^\infty
+\arctan\left(\frac1n\right)$ and $\displaystyle\sum_{n=1}^\infty \frac1n$ have
+the same behavior, i.e., diverge to $+\infty$.
+
+\newpage
+\section{Absolute Convergence Theorem}
+
+\subsection{Prerequisites?}
+
+None.
+
+\subsection{When to use?}
+
+When your series has negative terms in it.
+
+\subsection{Why is it useful?}
+
+The CT and LCT can only be used when your series has positive terms (go back and
+read their prerequisites again). 90\% of the time, this is how the ACT is used
+in a real problem:
+\begin{enumerate}
+
+  \item Question gives you $\fbox{\displaystyle \sum_{n=1}^\infty a_n} \gets$ has negative terms; can't
+  use CT or LCT :(
+
+  \item You don't answer the question just yet.
+
+  \item Instead, you look at a different series:
+  $\fbox{\displaystyle \sum_{n=1}^\infty \left| a_n \right|} \gets$ no
+  negative terms; can use CT or LCT :)
+
+  \item If the new series converges, then the ACT tells you that the original
+  series converges as well. If the new series diverges, then the ACT is
+  inconclusive and you have to try something else.
+
+\end{enumerate}
+Please take your time to really understand how the logic of this argument goes.
+It's not as straightforward as some of the mathematical arguments you're used
+to.
+
+\newpage
+\section{All At Once}
+
+Example: $\displaystyle \sum_{n=2}^\infty
+\frac{3\cos(4n+5)-2}{n\sqrt[3]{n^2-1}}$.
+
+\begin{itemize}
+  \item Don't panic. Be patient. Get rid of the big ugly upstairs first.
+  Start off with \[
+    -3 \leq 3\cos(4n+5) \leq 3.
+  %Subtract $2$ from everything\dots \[
+    %-5 \leq 3\cos(4n+5)-2 \leq 1.
+  \]
+  Subtract $2$ and divide everything by $n \sqrt[3]{n^2-1}$: \[
+    \frac{-5}{n\sqrt[3]{n^2-1}} \leq \frac{3\cos(4n+5)-2}{n\sqrt[3]{n^2-1}} \leq
+    \frac1{n\sqrt[3]{n^2-1}}.
+  \]
+
+  \item The lower bound is negative, which means we might have negative terms in
+  our series, so we look at a different series: \[
+    \sum_{n=1}^\infty\left|\frac{3\cos(4n+5)-2}{n\sqrt[3]{n^2-1}}\right|.
+  \]
+  \color{gray}We hope that this new guy converges, because if it diverges, then
+  no conclusion can be drawn (why?) and we have to start all over again and try
+  something else.\color{black}
+
+  \item Based on our bounds above, this must be true: \[
+    0 \leq \left|\frac{3\cos(4n+5)-2}{n\sqrt[3]{n^2-1}}\right| \leq
+    \frac5{n\sqrt[3]{n^2-1}}.
+  \]
+  If you don't understand how I got this, \emph{please ask!} But I want you
+  to think about it for a minute. 
+  
+  \item Thus, \[
+    0 \leq \sum_{n=2}^\infty \left|\frac{3\cos(4n+5)-2}{n\sqrt[3]{n^2-1}}\right| \leq
+    \sum_{n=2}^\infty\frac5{n\sqrt[3]{n^2-1}}.
+  \]
+
+  \item Now the thing on the right has a dominant term downstairs, which is
+  $n\sqrt[3]{n^2} = n\cdot n^{2/3}=n^{5/3}$. In other words, \[
+    \sum_{n=2}^\infty\frac5{n\sqrt[3]{n^2-1}} \qquad\text{``looks like''}\qquad
+    \sum_{n=2}^\infty\frac5{n^{5/3}}.
+  \]
+
+  \item Now we're good to go:\begin{itemize}
+
+    \item By $p$-series, $\displaystyle \sum_{n=2}^\infty \frac5{n^{5/3}}$
+    converges because $p=\displaystyle\frac53>1$.
+
+    \item Therefore, by LCT, $\displaystyle\sum_{n=2}^\infty\frac5{n\sqrt[3]{n^2-1}}$
+    converges as well. (You actually have to do the math to find
+    $\displaystyle\lim_{n\to\infty}\frac{a_n}{b_n}$; I'm not doing it here.)
+
+    \item Therefore, by CT, $\displaystyle\sum_{n=2}^\infty
+    \left|\frac{3\cos(4n+5)-2}{n\sqrt[3]{n^2-1}}\right|$ converges as well.
+
+    \item Therefore, by ACT, $\displaystyle\sum_{n=2}^\infty
+    \frac{3\cos(4n+5)-2}{n\sqrt[3]{n^2-1}}$ converges as well.
+
+  \end{itemize}
+\end{itemize}
+
+\end{document}
