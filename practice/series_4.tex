@@ -1,0 +1,113 @@
+\documentclass[11pt]{article}
+
+% ----------------------------------------------------------- essential packages
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+%\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{booktabs} % somewhat essential, I guess
+\usepackage{setspace} % for double spacing, etc.
+
+% ------------------------------------------------------------------- font stuff
+\renewcommand{\rmdefault}{ptm}
+\usepackage[lite,zswash,eucal]{mtpro2}
+%\usepackage[charter]{mathdesign}
+%\usepackage[utopia]{mathdesign}
+%\usepackage{fourier}
+
+% ----------------------------------------------------------- fancy header stuff
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[LO,LE]{Math 112L-06}
+\chead{\textbf{Series Practice III}}
+\fancyhead[RO,RE]{Spring 2017}
+
+% ------------------------------------------------------------------- tikz stuff
+\usepackage{tikz}
+%\usetikzlibrary{decorations.markings}
+
+% ----------------------------------------------------------------------- macros
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+%\DeclareMathOperator{\Hom}{Hom}
+
+% --------------------------------------------------------------- begin document
+\begin{document}
+
+\noindent \emph{\textbf{Warning: Some of these are pretty challenging. Please
+make sure you can do the problems in the textbook before you even attempt
+these.}}
+
+\begin{enumerate}
+
+  \item Do these. \begin{enumerate}
+
+    \item $\displaystyle \sum_{n=1}^\infty
+    \frac{n\sqrt{n+2}}{2n^2-n+1}$
+
+    \item $\displaystyle \sum_{n=1}^\infty
+    \frac{n^3+n+1}{n^2-5n}$
+
+    \item $\displaystyle \sum_{n=1}^\infty
+    \frac{\sin(n)}{n\sqrt n}$
+
+    \item $\displaystyle \sum_{n=1}^\infty
+    \frac{1-\sin(n)}{n^2 - 1}$
+
+    \item $\displaystyle \sum_{n=1}^\infty
+    \frac{\cos(n\pi)}{n^3}$
+
+    \item $\displaystyle \sum_{n=1}^\infty
+    \frac{1+\sin(n)}{2^n}$
+
+    \item $\displaystyle \sum_{n=1}^\infty
+    \frac{\arctan(1-n) - \pi}{\pi^n}$
+
+    \item $\displaystyle \sum_{n=1}^\infty
+    \frac{\arctan(n)}{n\sqrt[3]n}$
+
+    \item $\displaystyle \sum_{n=1}^\infty
+    \frac{e^{1/n}}{n}$
+
+    \item $\displaystyle \sum_{n=1}^\infty
+    \frac{e^{1/n}}{n^2}$
+
+    \item $\displaystyle \sum_{n=1}^\infty
+    \left( e^{1/n} - 1 \right)$
+
+    \item $\displaystyle \sum_{n=1}^\infty
+    \sin\left( \frac1n \right)$
+
+    \item $\displaystyle \sum_{n=1}^\infty
+    \frac1{n\sqrt[n]n}$
+
+    \item $\displaystyle \sum_{n=1}^\infty
+    e^{-2n} \left( 3 + \frac4n \right)^5$
+
+  \end{enumerate}
+
+  \item Show that if $a_n > 0$ and $\displaystyle \sum_{n=1}^\infty a_n$
+  converges, then so does $\displaystyle \sum_{n=1}^\infty \ln(1+a_n)$.
+
+  \item Show that if $a_n > 0$ and $\displaystyle \sum_{n=1}^\infty a_n$
+  diverges, then so does $\displaystyle \sum_{n=1}^\infty \tan(a_n)$.
+
+  \item Super hard (conceptually, not computationally). Proceed with caution.
+  \begin{enumerate}
+
+    \item Show that if $a_n > 0$ and $\displaystyle \sum_{n=1}^\infty a_n$
+    diverges, then so does $\displaystyle \sum_{n=1}^\infty \left( e^{a_n} - 1
+    \right)$.
+
+    \item Show that if $a_n > 0$ and $\displaystyle \sum_{n=1}^\infty a_n$
+    converges, then so does $\displaystyle \sum_{n=1}^\infty \left( e^{a_n} - 1
+    \right)$.
+
+  \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
